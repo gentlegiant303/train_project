@@ -47,7 +47,7 @@ database.ref().orderByChild("timeAdded").on("child_added", function(snapshot) {
   let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
   let tRemainder = diffTime % tFrequency;
   let tMinutesTillTrain = tFrequency - tRemainder;
-  let nextTrain = moment().add(tMinutesTillTrain, 'minutes').format('HH:mm');
+  let nextTrain = moment().add(tMinutesTillTrain, 'minutes').format('HH:mm A');
   $("#nextArrival").append("<tr><td>" + nextTrain);
   $("#minutesAway").append("<tr><td>" + tMinutesTillTrain);
 })
