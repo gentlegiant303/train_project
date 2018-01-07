@@ -37,9 +37,9 @@ $("#submit").on("click", function(event) {
 
 database.ref().orderByChild("timeAdded").on("child_added", function(snapshot) {
   let sv = snapshot.val();
-  $("#train").append(sv.trainName);
-  $("#destination").append(sv.destinationName);
-  $("#minutes").append(sv.frequency);
+  $("#train").append("<tr><td>" + sv.trainName);
+  $("#destination").append("<tr><td>" + sv.destinationName);
+  $("#minutes").append("<tr><td>" + sv.frequency);
   let tFrequency = sv.frequency;
   let firstTime = sv.time
   let firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
@@ -47,9 +47,9 @@ database.ref().orderByChild("timeAdded").on("child_added", function(snapshot) {
   let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
   let tRemainder = diffTime % tFrequency;
   let tMinutesTillTrain = tFrequency - tRemainder;
-  let nextTrain = moment().add(tMinutesTillTrain).format("hh:mm");
-  $("#nextArrival").append(nextTrain);
-  $("#minutesAway").append(tMinutesTillTrain);
+  let nextTrain = moment().add(tMinutesTillTrain, 'minutes').format('HH:mm');
+  $("#nextArrival").append("<tr><td>" + nextTrain);
+  $("#minutesAway").append("<tr><td>" + tMinutesTillTrain);
 })
 
 setInterval(function() {
