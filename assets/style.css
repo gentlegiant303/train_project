@@ -1,0 +1,23 @@
+.row {
+  margin-left: 20px;
+}
+
+h5 {
+  background-color: lightblue;
+  font-size: 20px;
+  font-style: bold;
+}
+
+.form-horizontal {
+  border-width: 2px;
+  border-color: lightblue;
+  border-style: solid;
+}
+
+.control-label {
+  margin-left: 20px;
+}
+
+.form-control {
+  margin-left: 20px;
+}

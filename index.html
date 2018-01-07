@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet"  type="text/css" href="./assets/style.css">
+  </head>
+  <body>
+    <div class="row">
+<div class="col-md-12">
+  <h5>Current Train Schedule</h5>
+  <div class="col-lg-3">
+    <div id="trainName"><strong>Train Name</strong></div>
+  </div>
+  <div class="col-lg-2">
+    <div id="destination"><strong>Destination</strong></div>
+  </div>
+  <div class="col-lg-2">
+    <div id="frequency"><strong>Frequency(min)</strong></div>
+  </div>
+  <div class="col-lg-2">
+    <div id="nextArrival"><strong>Next Arrival</strong></div>
+  </div>
+  <div class="col-lg-3">
+    <div id="minutesAway"><strong>Minutes Away</strong></div>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+  <h5>Add Train</h5>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <label for="trainName" class="control-label">Train Name</label>
+      <input type="text" class="form-control" id="trainName" placeholder="Thomas">
+      <label for="destination" class="control-label">Destination</label>
+      <input type="text" class="form-control" id="destinationName" placeholder="Denver">
+      <label for="time" class="control-label">First Train Time(HH:MM - Military Time)</label>
+      <input type="text" class="form-control" id="time" placeholder="HH:MM">
+      <label for="frequency" class="control-label">Frequency(min)</label>
+      <input type="text" class="form-control" id="frequency">
+    </div>
+     <button type="submit" class="btn btn-default" id="submit">Submit</button>
+  </form>
+</div>
+</div>
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script type="text/javascript" src="./assets/logic.js"></script>
+  </body>
+</html>
