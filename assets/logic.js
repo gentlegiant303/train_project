@@ -26,13 +26,28 @@ $("#submit").on("click", function(event) {
   destinationName = $("#destinationName").val().trim();
   trainTime = $("#time").val().trim();
   trainFrequency = $("#frequency").val().trim();
-  console.log(trainName);
-  console.log(trainFrequency);
-
   database.ref().push({
     trainName: trainName,
     destinationName: destinationName,
     time: trainTime,
-    frequency: trainFrequency
+    frequency: trainFrequency,
+    timeAdded: firebase.database.ServerValue.TIMESTAMP
   });
 });
+
+database.ref().orderByChild("timeAdded").on("child_added", function(snapshot) {
+  let sv = snapshot.val();
+  $("#train").append(sv.trainName);
+  $("#destination").append(sv.destinationName);
+  $("#minutes").append(sv.frequency);
+  let tFrequency = sv.frequency;
+  let firstTime = sv.time
+  let firstTimeConverted = moment(firstTime, "hh:mm").subtract(1, "years");
+  let currentTime = moment();
+  let diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+  let tRemainder = diffTime % tFrequency;
+  let tMinutesTillTrain = tFrequency - tRemainder;
+  let nextTrain = moment().add(tMinutesTillTrain).format("hh:mm");
+  $("#nextArrival").append(nextTrain);
+  $("#minutesAway").append(tMinutesTillTrain);
+})
