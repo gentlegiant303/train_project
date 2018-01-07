@@ -51,3 +51,7 @@ database.ref().orderByChild("timeAdded").on("child_added", function(snapshot) {
   $("#nextArrival").append(nextTrain);
   $("#minutesAway").append(tMinutesTillTrain);
 })
+
+setInterval(function() {
+  location.reload();
+}, 60000)
